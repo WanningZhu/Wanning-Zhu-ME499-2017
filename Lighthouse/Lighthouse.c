@@ -28,9 +28,10 @@ void clear_stick(int* s){
 }
 
 void __ISR(_EXTERNAL_0_VECTOR, IPL2SOFT) F_EdgeISR(void){ 
-int test;
-test = _CP0_GET_COUNT();
-sprintf(buffer,"%d\n\r",test);
+
+float test = _CP0_GET_COUNT()*0.025;
+
+sprintf(buffer,"%.1f\n\r",test);
 			        NU32_WriteUART3(buffer);
 	// if(s1 == 0){
 	// 	start = 1;
